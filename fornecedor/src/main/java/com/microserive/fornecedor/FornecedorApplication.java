@@ -1,12 +1,10 @@
 package com.microserive.fornecedor;
 
-import com.microserive.fornecedor.model.Pedido;
 import com.microserive.fornecedor.model.PedidoItem;
-import com.microserive.fornecedor.model.PedidoStatus;
 import com.microserive.fornecedor.model.Produto;
 import com.microserive.fornecedor.repository.InfoRepository;
 import com.microserive.fornecedor.repository.PedidoItemRepository;
-import com.microserive.fornecedor.repository.PeditoRepository;
+import com.microserive.fornecedor.repository.PedidoRepository;
 import com.microserive.fornecedor.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -25,7 +23,7 @@ public class FornecedorApplication {
     private ProdutoRepository produtoRepository;
 
     @Autowired
-    private PeditoRepository peditoRepository;
+    private PedidoRepository pedidoRepository;
 
     @Autowired
     private PedidoItemRepository pedidoItemRepository;
@@ -50,7 +48,15 @@ public class FornecedorApplication {
         produto.setEstado("GO");
         produtoRepository.save(produto);
 
-        Pedido pedido2 = new Pedido();
+        Produto produto2 = new Produto();
+        produto2.setId(null);
+        produto2.setDescricao("Maçã");
+        produto2.setNome("Maçã");
+        produto2.setPreco(1.22);
+        produto2.setEstado("GO");
+        produtoRepository.save(produto2);
+
+/*        Pedido pedido2 = new Pedido();
         pedido2.setId(null);
         pedido2.setStatus(PedidoStatus.ENVIADO);
         pedido2.setTempoDePreparo(40);
@@ -58,9 +64,9 @@ public class FornecedorApplication {
         Pedido pedido = new Pedido();
         pedido.setId(null);
         pedido.setStatus(PedidoStatus.PRONTO);
-        pedido.setTempoDePreparo(40);
+        pedido.setTempoDePreparo(40);*/
 
-        PedidoItem pedidoItem = new PedidoItem();
+/*        PedidoItem pedidoItem = new PedidoItem();
         pedidoItem.setId(null);
         pedidoItem.setProduto(produto);
         pedidoItem.setQuantidade(10);
@@ -68,9 +74,9 @@ public class FornecedorApplication {
         itemsPedido.add(pedidoItem);
         pedido.setItens(itemsPedido);
 
-        peditoRepository.save(pedido);
-        peditoRepository.save(pedido2);
-        pedidoItemRepository.save(pedidoItem);
+        pedidoRepository.save(pedido);
+        pedidoRepository.save(pedido2);
+        pedidoItemRepository.save(pedidoItem);*/
 
 
     }
